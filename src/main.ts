@@ -8,5 +8,8 @@ if (environment.production) {
   enableProdMode();
 }
 
+(analytics as any)._writeKey = environment.analytics.segmentWriteKey
+analytics.load(environment.analytics.segmentWriteKey)
+
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
